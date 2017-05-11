@@ -85,7 +85,7 @@ And then run the znc container using the `--volumes-from` option instead of
 
 You'll want to periodically back up your znc data to the host:
 
-    docker run --volumes-from znc-data -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar /znc-data
+    docker run --volumes-from znc-data -v $(pwd):/backup alpine tar cvf /backup/backup.tar /znc-data
 
 And restore them later:
 
@@ -98,8 +98,8 @@ This means that it will *not* connect to your IRC server(s) if they don't
 present a valid certificate. This is meant to help keep you safer from MitM
 attacks.
 
-This image installs the debian/ubuntu `ca-certificates`
-[package](http://packages.ubuntu.com/vivid/ca-certificates) so that servers with
+This image installs the Alpine `ca-certificates`
+[package](https://pkgs.alpinelinux.org/packages?name=ca-certificates) so that servers with
 valid certificates will automatically be connected to ensuring no additional
 user intervention needed. If one of your servers doesn't have a valid
 fingerprint, you will need to connect to your bouncer and respond to `*status`.
