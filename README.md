@@ -61,6 +61,10 @@ down ZNC's startup with a few seconds.
 ZNC stores all it's settings in a Docker volume mounted to `/znc-data` inside
 the container.
 
+If you need to use the $DATADIR variable within `znc.conf.default`, you can use
+`@DATADIR@` and simple string replacement within the `entrypoint.sh` script will
+take care of the rest.
+
 ### Mount a Host Directory
 
 The simplest approach is typically to mount a directory off of your host machine
@@ -90,6 +94,19 @@ You'll want to periodically back up your znc data to the host:
 And restore them later:
 
     docker run --volumes-from znc-data -v $(pwd):/backup busybox tar xvf /backup/backup.tar
+
+### SSL
+
+SSL is supported out of the box, with a simple self-signed (aka. snake-oil)
+certificate created if one does not exist.
+
+If you wish to use your own signed certificate, you must concatenate a private
+key, intermediate certificate and your cert into a single PEM file as so:
+
+    cat priv.key int.crt cert.crt > ${DATADIR}/ssl/znc.pem
+
+If you're using a form of persistent volume storage, the next time your container
+starts the new certificate will be loaded.
 
 ## A note about ZNC 1.6
 

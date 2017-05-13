@@ -67,6 +67,7 @@ RUN \
 	${RUNTIME_PACKAGES} \
   bash \
 	ca-certificates \
+  openssl \
   sudo && \
 
 # cleanup
