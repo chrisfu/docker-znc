@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: znc
+  labels:
+    app: znc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: znc
+  template:
+    metadata:
+      name: znc
+      labels:
+        app: znc
+    spec:
+      containers:
+        - name: znc
+          image: chrisfu/znc
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: znc-data
+              mountPath: /znc-data
+          ports:
+            - name: znc
+              containerPort: 6667
+          livenessProbe:
+            tcpSocket:
+              port: 6667
+            timeoutSeconds: 10
+      volumes:
+      - name: znc-data
+        persistentVolumeClaim:
+          claimName: znc-persistent-storage
