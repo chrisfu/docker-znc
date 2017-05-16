@@ -25,7 +25,7 @@ workers.
 
 To perform the initial deployment, it is as simple as:
 
-    kubectl -f create znc/
+    kubectl -f apply znc/
 
 This will create the `Service`, `Deployment` and `PersistentVolumeClaim`
 manifests for ZNC. Within a minute or so the ZNC service will be available when
