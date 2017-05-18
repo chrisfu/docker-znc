@@ -1,4 +1,4 @@
-# version 1.6.5-1
+# version 1.6.5-3
 # docker-version 1.13.0
 FROM alpine:3.5
 MAINTAINER Chris Merrett "chris@chrismerrett.com"
@@ -64,10 +64,13 @@ RUN \
 	| sort -u \
 	)" && \
  apk add --no-cache \
-	${RUNTIME_PACKAGES} \
+  ${RUNTIME_PACKAGES} \
   bash \
-	ca-certificates \
+  ca-certificates \
+  g++ \
+  gcc \
   openssl \
+  openssl-dev \
   sudo && \
 
 # cleanup
