@@ -69,6 +69,7 @@ RUN \
   ca-certificates \
   g++ \
   gcc \
+  icu-dev \
   openssl \
   openssl-dev \
   sudo && \
