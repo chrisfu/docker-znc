@@ -116,9 +116,9 @@ present a valid certificate. This is meant to help keep you safer from MitM
 attacks.
 
 This image installs the Alpine `ca-certificates`
-[package](https://pkgs.alpinelinux.org/packages?name=ca-certificates) so that servers with
-valid certificates will automatically be connected to ensuring no additional
-user intervention needed. If one of your servers doesn't have a valid
+[package](https://pkgs.alpinelinux.org/packages?name=ca-certificates) so that
+servers with valid certificates will automatically be connected to ensuring no
+additional user intervention needed. If one of your servers doesn't have a valid
 fingerprint, you will need to connect to your bouncer and respond to `*status`.
 
 See [this](https://mikaela.info/english/2015/02/24/znc160-ssl.html) article for
@@ -133,7 +133,8 @@ more information.
 
 ## Thanks
 
-This is derivative work heavily utilizing the great work contained within the following repositories:
+This is derivative work heavily utilizing the great work contained within the
+following repositories:
 
 * [jimeh/docker-znc](https://github.com/jimeh/docker-znc)
 * [linuxserver/docker-znc](https://github.com/linuxserver/docker-znc)
